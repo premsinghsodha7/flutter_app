@@ -5,7 +5,15 @@ void main() => runApp(MaterialApp(
   home: PremCard(),
 ));
 
-class PremCard extends StatelessWidget {
+class PremCard extends StatefulWidget {
+  @override
+  _PremCardState createState() => _PremCardState();
+}
+
+class _PremCardState extends State<PremCard> {
+
+  int premLevel = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,6 +23,15 @@ class PremCard extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         centerTitle: true,
         elevation: 0.0,
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            premLevel += 1;
+          });
+        },
+        backgroundColor: Colors.grey[800],
+        child: Icon(Icons.add),
       ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 30.0, 0.0),
@@ -58,7 +75,7 @@ class PremCard extends StatelessWidget {
             ),
             SizedBox(height: 5.0),
             Text(
-              '8',
+              '$premLevel',
               style: TextStyle(
                   color: Colors.amberAccent[200],
                   letterSpacing: 2.0,
@@ -77,9 +94,9 @@ class PremCard extends StatelessWidget {
                 Text(
                   'premsinghsodha7@gmail.com',
                   style: TextStyle(
-                    color: Colors.grey[400],
-                    fontSize: 18.0,
-                    letterSpacing: 1.0
+                      color: Colors.grey[400],
+                      fontSize: 18.0,
+                      letterSpacing: 1.0
                   ),
                 )
               ],
@@ -90,4 +107,6 @@ class PremCard extends StatelessWidget {
     );
   }
 }
+
+
 
