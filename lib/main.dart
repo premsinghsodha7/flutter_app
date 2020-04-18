@@ -74,14 +74,40 @@ class _PremCardState extends State<PremCard> {
               ),
             ),
             SizedBox(height: 5.0),
-            Text(
-              '$premLevel',
-              style: TextStyle(
-                  color: Colors.amberAccent[200],
-                  letterSpacing: 2.0,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.bold
-              ),
+            Row(
+              children: <Widget>[
+                IconButton(
+                    icon: Icon(
+                        Icons.remove,
+                        color: Colors.grey,
+                    ),
+                    onPressed: () {
+                      setState(() {
+                        (premLevel == 0)? premLevel: premLevel -= 1;
+                      });
+                    },
+                ),
+                Text(
+                  '$premLevel',
+                  style: TextStyle(
+                      color: Colors.amberAccent[200],
+                      letterSpacing: 2.0,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold
+                  ),
+                ),
+                IconButton(
+                  icon: Icon(
+                    Icons.add,
+                    color: Colors.grey,
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      premLevel += 1;
+                    });
+                  },
+                ),
+              ],
             ),
             SizedBox(height: 30.0),
             Row(
